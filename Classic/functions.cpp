@@ -10,13 +10,12 @@ namespace myfunctions{
         std::vector<double> x;
         x=data.initial_point;
         std::vector<double> x_old;
-        x_old=x;
         double alpha=data.initial_step;
         // grad is the gradient in x_k
         std::vector<double> grad;
         grad=data.grad(x);
         // while loop for the update of the x, with all the needed conditions for stoppage of the loop
-        while(k<data.maxiter && norm(x-x_old)<data.tolerance_step && norm(grad)<data.tolerance_grad){
+        do{
             // update of x_old
             x_old=x;
             // computation of alpha_k with armijo rule
@@ -28,7 +27,7 @@ namespace myfunctions{
             x=x-alpha*grad;
             // increase the number of iterations done
             ++k;
-        }
+        }while(k<data.maxiter && norm(x-x_old)>data.tolerance_step && norm(grad)>data.tolerance_grad);
         return x;
     }
 
@@ -38,6 +37,7 @@ namespace myfunctions{
         std::vector<double> grad;
         grad=data.grad(x);
         // computation of left and right parts of inequality
+        std::vector<double> x_grad;
         double value_left=data.f(x)-data.f(x - alpha * grad);
         double norm_grad=std::pow(norm(grad),2);
         double value_right=(data.sigma*alpha)*norm_grad;
