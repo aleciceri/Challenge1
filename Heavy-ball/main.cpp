@@ -26,8 +26,7 @@ int main(int argc , char *argv []){
     if(argc==1)
         minimum = heavy_ball(data,'0');
     else
-        {minimum = heavy_ball(data,*argv[1]); // in the input I only care abut the first element, the others are not requeted and so discarded
-        std::cout<<argv[1]<<std::endl;}
+        minimum = heavy_ball(data,*argv[1]); // in the input I only care abut the first element, the others are not requeted and so discarded
     // print of the minimum point found
     for(std::size_t i=0;i<minimum.size();++i)
         std::cout<<minimum[i]<<"  "<<std::endl;

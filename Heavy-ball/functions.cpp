@@ -22,10 +22,11 @@ namespace myfunctions{
             // update of x_old
             x_old=x;
             // computation of alpha_k
-            if (type=='0')
+            if (type=='1')
                 {alpha=data.initial_step*std::exp(-data.mu*k);}
-            else
+            else if(type=='2')
                 {alpha=data.initial_step/(1+data.mu*k);}
+            //if type=='0' or not equal to '1' or '2' the initial value is assigned to alpha and it never changes, so the default method is applied
             // update of x
             x=x+d;
             d_old=d;
