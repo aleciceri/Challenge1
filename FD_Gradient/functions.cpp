@@ -14,8 +14,9 @@ namespace myfunctions{
         // grad is the gradient in x_k
         std::vector<double> grad;
         grad=FD_gradient(data,x);
+        double error_step=data.tolerance_step+1;
         // while loop for the update of the x, with all the needed conditions for stoppage of the loop
-        do{
+        while(k<data.maxiter && error_step>data.tolerance_step && norm(grad)>data.tolerance_grad){
             // update of x_old
             x_old=x;
             // computation of alpha_k with armijo rule
@@ -25,9 +26,10 @@ namespace myfunctions{
             // update of x
             grad=FD_gradient(data,x);
             x=x-alpha*grad;
+            error_step=norm(x-x_old);
             // increase the number of iterations done
             ++k;
-        }while(k<data.maxiter && norm(x-x_old)>data.tolerance_step && norm(grad)>data.tolerance_grad);
+        }
         return x;
     }
 
