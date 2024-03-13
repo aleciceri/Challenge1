@@ -46,4 +46,9 @@ In the following part I'll describe the folders content one by one
   The default value is 0, so a constant learning rate, and it is important to remark that it takes into consideration only the first char value of the first input after ./main, so if you type more than 1 char character or more than 1 input, the rest will be discarded. Since we have a default value, it holds if you don't give an input or if the first char of your input is different from '0','1' or '2'.
 
 
+
+TO USE MUPARSER INCLUDE -I../../../../../pacs-examples/Examples/include in makefile, maybe you have to change the number of ../
+
+
+
   
