@@ -1,0 +1,6 @@
+initial_step=1.0
+maxiter=100
+tolerance_grad=1e-6
+tolerance_step=1e-6
+sigma=0.4
+h=1e-4

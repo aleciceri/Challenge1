@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -std=c++20
+CPPFLAGS = -Wall -std=c++20
 
 SOURCES = main.cpp functions.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -8,10 +8,10 @@ EXECUTABLE = main
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
+	$(CC) $(CPPFLAGS) -o $@ $(OBJECTS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CPPFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)

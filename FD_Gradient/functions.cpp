@@ -67,7 +67,7 @@ namespace myfunctions{
             f1=data.f(x_new);
             x_new[i]=x[i]+data.h;
             f2=data.f(x_new);
-            grad.emplace_back((f2-f1)/data.h);
+            grad.emplace_back((f2-f1)/(2*data.h));
         }
         return grad;
     }

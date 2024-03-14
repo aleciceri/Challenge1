@@ -13,7 +13,7 @@ namespace myfunctions{
         double alpha=data.initial_step;
         // grad is the gradient in x_k
         std::vector<double> grad;
-        grad=data.grad(x);
+        grad=FD_gradient(data,x);
         // while loop for the update of the x, with all the needed conditions for stoppage of the loop
         double error_step=data.tolerance_step+1;
         while(k<data.maxiter && error_step>data.tolerance_step && norm(grad)>data.tolerance_grad){
@@ -24,7 +24,7 @@ namespace myfunctions{
             while(cond(data,alpha,x))
                 {alpha=alpha/2;}
             // update of x
-            grad=data.grad(x);
+            grad=FD_gradient(data,x);
             x=x-alpha*grad;
             // increase the number of iterations done
             error_step=norm(x-x_old);
@@ -37,7 +37,7 @@ namespace myfunctions{
     bool cond(mystruct data,double alpha,std::vector<double> x){
         // computation of gradient
         std::vector<double> grad;
-        grad=data.grad(x);
+        grad=FD_gradient(data,x);
         // computation of left and right parts of inequality
         std::vector<double> x_grad;
         double value_left=data.f(x)-data.f(x - alpha * grad);
@@ -54,6 +54,21 @@ namespace myfunctions{
             norm+=std::pow(vec[i],2);
         }
         return std::sqrt(norm);
+    }
+
+    std::vector<double> FD_gradient(mystruct data, std::vector<double> x){
+        std::vector<double> x_new,grad;
+        double f1,f2;
+        // pointwisely computation of the gradient
+        for(std::size_t i=0;i<x.size();++i){
+            x_new=x;
+            x_new[i]=x[i]-data.h;
+            f1=data.f(x_new);
+            x_new[i]=x[i]+data.h;
+            f2=data.f(x_new);
+            grad.emplace_back((f2-f1)/(2*data.h));
+        }
+        return grad;
     }
 }
 

@@ -1,5 +1,8 @@
 CC = g++
-CFLAGS = -Wall -std=c++20
+CXXFLAGS ?= -std=c++20
+CPPFLAGS ?= -Wall -I. -I../../../Examples/pacs-examples/Examples/include
+LDFLAGS ?= -L../../../Examples/pacs-examples/Examples/lib
+LIBS ?=-lmuparser
 
 SOURCES = main.cpp functions.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -8,10 +11,10 @@ EXECUTABLE = main
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
+	$(CC) $(CXXFLAGS) $(LDFLAGS) $< $(LIBS) -o $@ $(OBJECTS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) -c $(CPPFLAGS) $(CXXFLAGS) $<
 
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
