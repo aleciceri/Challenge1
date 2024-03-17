@@ -1,9 +1,10 @@
 CC = g++
 CXXFLAGS ?= -std=c++20
-CPPFLAGS ?= -Wall -I. -I../../../Examples/pacs-examples/Examples/include
+CPPFLAGS ?= -Wall -I. -I../../../Examples/pacs-examples/Examples/include -I../../../Examples/pacs-examples/Examples/include/muparserx
 LDFLAGS ?= -L../../../Examples/pacs-examples/Examples/lib
-LIBS ?= -lmuparser
+LIBS ?= -lmuparser -lmuparserx
 
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib
 SOURCES = main.cpp functions.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = main

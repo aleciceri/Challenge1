@@ -16,12 +16,15 @@ struct mystruct{
     unsigned int maxiter=100;
     double eta=0.9;
     double mu=0.2;
+    double sigma=0.4;
 };
 
 // declaration of all the methods I'll need
 std::vector<double> heavy_ball(mystruct, char);
 
 double norm(std::vector<double>);
+
+bool cond(mystruct,double,std::vector<double>);
 
 }
 

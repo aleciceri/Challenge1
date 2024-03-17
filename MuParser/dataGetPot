@@ -1,7 +1,9 @@
 initial_step=1.0
-maxiter=100
+maxiter=1000
 tolerance_grad=1e-6
 tolerance_step=1e-6
 sigma=0.4
 h=1e-4
-fun=x*y+4*x^4+y^2+3*x
+fun=x*y+4.0*x^4+y^2+3.0*x
+grad1=y+16.0*x^3+3.0
+grad2=x+2.0*y

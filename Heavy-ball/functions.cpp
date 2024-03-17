@@ -26,7 +26,12 @@ namespace myfunctions{
                 {alpha=data.initial_step*std::exp(-data.mu*k);}
             else if(type=='2')
                 {alpha=data.initial_step/(1+data.mu*k);}
-            //if type=='0' or not equal to '1' or '2' the initial value is assigned to alpha and it never changes, so the default method is applied
+            else if(type == '3'){
+                alpha=data.initial_step;
+                while(cond(data,alpha,x))
+                    {alpha=alpha/2;}
+            }
+            //if type=='0' or not equal to '1','2' or '3' the initial value is assigned to alpha and it never changes, so the default method is applied
             // update of x
             x=x+d;
             d_old=d;
@@ -47,6 +52,20 @@ namespace myfunctions{
             norm+=std::pow(vec[i],2);
         }
         return std::sqrt(norm);
+    }
+
+    // cond is the function needed for the armijo condition on alpha
+    bool cond(mystruct data,double alpha,std::vector<double> x){
+        // computation of gradient
+        std::vector<double> grad;
+        grad=data.grad(x);
+        // computation of left and right parts of inequality
+        std::vector<double> x_grad;
+        double value_left=data.f(x)-data.f(x - alpha * grad);
+        double norm_grad=std::pow(norm(grad),2);
+        double value_right=(data.sigma*alpha)*norm_grad;
+        // return the opposite condition because if this return false (i.e. the condition holds) then the loop stops
+        return value_left<value_right;
     }
 }
 

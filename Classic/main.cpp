@@ -15,7 +15,7 @@ int main(){
     mystruct data;
     data.f=f;
     data.grad=grad;
-    data.initial_step=1.;
+    data.initial_step=1.0;
     data.maxiter=1000;
     data.tolerance_grad=std::pow(10,-6);
     data.tolerance_step=std::pow(10,-6);

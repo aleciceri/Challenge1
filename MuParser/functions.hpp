@@ -1,8 +1,8 @@
 #include<functional>
 #include<vector>
 #include<cmath>
-//#include "muparser_fun.hpp"
 #include "muParser.h"
+#include "mpParser.h"
 #include<string>
 
 // creation of a namespace for my methods and struct 
@@ -11,6 +11,9 @@ namespace myfunctions{
 // definition of the struct, with the function, its gradient and all the parameters
 struct mystruct{
     mu::Parser f;
+    mu::Parser grad1;
+    mu::Parser grad2;
+    //mup::ParserX grad;
     std::vector<double> initial_point{0.0,0.0};
     double tolerance_step=0.1;
     double tolerance_grad=0.1;
