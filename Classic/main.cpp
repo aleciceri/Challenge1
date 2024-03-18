@@ -24,6 +24,7 @@ int main(){
     // call for the armijo that computes the minimum of the funtion in the struct, given all the needed parameters 
     std::vector<double> minimum = armijo(data);
     // print of the minimum point found
+    std::cout<<"Minimum point: "<<std::endl;
     for(std::size_t i=0;i<minimum.size();++i)
         std::cout<<minimum[i]<<"  "<<std::endl;
     return 0;

@@ -3,7 +3,7 @@
 #include<iostream>
 
 namespace myfunctions{
-    std::vector<double> heavy_ball(mystruct data, char type){
+    std::vector<double> heavy_ball(mystruct data,const char type){
         unsigned int k=0;
         // x will be the x_k point, and will be updated, while x_old will be the x_(k-1) point 
         std::vector<double> x;
@@ -71,13 +71,12 @@ namespace myfunctions{
 
 // operator for the difference of two vectors
 std::vector<double> operator-(std::vector<double> v1,std::vector<double> v2){
-    // if the size is different, then the smaller vector will be expanded with zeros
-    std::size_t max=std::max(v1.size(),v2.size());
-    v1.resize(max,0.0);
-    v2.resize(max,0.0);
+    // if the size is different, then it is an error and it stops the compilation
+    if(v1.size()!=v2.size())
+        std::cerr<<"Vectors of different size, cannot apply subtraction"<<std::endl;
     std::vector<double> result;
     // difference element by element
-    for(std::size_t i=0;i<max;++i){
+    for(std::size_t i=0;i<v1.size();++i){
         result.emplace_back(v1[i]-v2[i]);
     }
     return result;
@@ -85,13 +84,12 @@ std::vector<double> operator-(std::vector<double> v1,std::vector<double> v2){
 
 // operator for the sum of two vectors
 std::vector<double> operator+(std::vector<double> v1,std::vector<double> v2){
-        // if the size is different, then the smaller vector will be expanded with zeros
-    std::size_t max=std::max(v1.size(),v2.size());
-    v1.resize(max,0.0);
-    v2.resize(max,0.0);
+    // if the size is different, then it is an error and it stops the compilation
+    if(v1.size()!=v2.size())
+        std::cerr<<"Vectors of different size, cannot apply subtraction"<<std::endl;
     std::vector<double> result;
-    // difference element by element
-    for(std::size_t i=0;i<max;++i){
+    // sum element by element
+    for(std::size_t i=0;i<v1.size();++i){
         result.emplace_back(v1[i]+v2[i]);
     }
     return result;

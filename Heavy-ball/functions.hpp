@@ -20,7 +20,7 @@ struct mystruct{
 };
 
 // declaration of all the methods I'll need
-std::vector<double> heavy_ball(mystruct, char);
+std::vector<double> heavy_ball(mystruct,const char);
 
 double norm(std::vector<double>);
 
@@ -28,7 +28,7 @@ bool cond(mystruct,double,std::vector<double>);
 
 }
 
-// to make the code easier to read, I define these 2 operators for making the difference between two vectors and the muliplication between a scalar and a vector
+// to make the code easier to read, I define these 2 operators for making the difference between two vectors, the sum and the muliplication between a scalar and a vector
 std::vector<double> operator-(std::vector<double>,std::vector<double>);
 
 std::vector<double> operator+(std::vector<double>,std::vector<double>);

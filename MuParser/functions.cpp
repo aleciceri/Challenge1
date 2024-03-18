@@ -36,18 +36,18 @@ namespace myfunctions{
     // cond is the function needed for the armijo condition on alpha
     bool cond(mystruct & data,double alpha){
         // computation of gradient
-        std::vector<double> grad,x_old;
-        x_old=data.current_point;
+        std::vector<double> grad;
+        std::vector<double> x_old{data.current_point};
         grad={data.grad1.Eval(),data.grad2.Eval()};
         // computation of left and right parts of inequality
-        double value_left=data.f.Eval(); //-data.f.Eval(x - alpha * grad);
+        double value_left=data.f.Eval();
         data.current_point=data.current_point-alpha*grad;
-        value_left-=data.f.Eval();
+        double value_left1=data.f.Eval();
         data.current_point=x_old;
         double norm_grad=std::pow(norm(grad),2);
         double value_right=(data.sigma*alpha)*norm_grad;
         // return the opposite condition because if this return false (i.e. the condition holds) then the loop stops
-        return value_left<value_right;
+        return value_left-value_left1<value_right;
     }
 
     // function for the computation of the norm of a vector, loop over the element, summing the squares then computing the square root
@@ -79,26 +79,24 @@ namespace myfunctions{
 
 // operator for the difference of two vectors
 std::vector<double> operator-(std::vector<double> v1,std::vector<double> v2){
-    // if the size is different, then the smaller vector will be expanded with zeros
-    std::size_t max=std::max(v1.size(),v2.size());
-    v1.resize(max,0.0);
-    v2.resize(max,0.0);
-    std::vector<double> result;
+    // if the size is different, then it is an error and it stops the compilation
+    if(v1.size()!=v2.size())
+        std::cerr<<"Vectors of different size, cannot apply subtraction"<<std::endl;
+    std::vector<double> result{v1};
     // difference element by element
-    for(std::size_t i=0;i<max;++i){
-        result.emplace_back(v1[i]-v2[i]);
+    for(std::size_t i=0;i<v1.size();++i){
+        result[i]=v1[i]-v2[i];
     }
     return result;
 }
 
 std::vector<double> operator+(std::vector<double> v1,std::vector<double> v2){
-    // if the size is different, then the smaller vector will be expanded with zeros
-    std::size_t max=std::max(v1.size(),v2.size());
-    v1.resize(max,0.0);
-    v2.resize(max,0.0);
+    // if the size is different, then it is an error and it stops the compilation
+    if(v1.size()!=v2.size())
+        std::cerr<<"Vectors of different size, cannot apply subtraction"<<std::endl;
     std::vector<double> result;
-    // difference element by element
-    for(std::size_t i=0;i<max;++i){
+    // sum element by element
+    for(std::size_t i=0;i<v1.size();++i){
         result.emplace_back(v1[i]+v2[i]);
     }
     return result;

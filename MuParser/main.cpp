@@ -19,7 +19,7 @@ int main(int argc,char *argv[]){
     data.maxiter=datafile("maxiter",100);
     data.tolerance_grad=datafile("tolerance_grad",1e-6);
     data.tolerance_step=datafile("tolerance_step",1e-6);
-    data.initial_point={0.5,0.5};
+    data.initial_point={0.0,0.0};
     data.sigma=datafile("sigma",0.4);
     data.h=datafile("h",1e-4);
     data.current_point=data.initial_point;
@@ -30,9 +30,9 @@ int main(int argc,char *argv[]){
         data.f.SetExpr(funstring);
         data.grad1.DefineVar("x", &data.current_point[0]);
         data.grad1.DefineVar("y", &data.current_point[1]);
+        data.grad1.SetExpr(grad1string);
         data.grad2.DefineVar("x", &data.current_point[0]);
         data.grad2.DefineVar("y", &data.current_point[1]);
-        data.grad1.SetExpr(grad1string);
         data.grad2.SetExpr(grad2string);
       }
     catch (mu::Parser::exception_type &e)
@@ -42,8 +42,10 @@ int main(int argc,char *argv[]){
     // call for the armijo that computes the minimum of the funtion in the struct, given all the needed parameters 
     std::vector<double> minimum = armijo(data);
     // print of the minimum point found
+    std::cout<<"Minimum point: "<<std::endl;
     for(std::size_t i=0;i<minimum.size();++i)
         std::cout<<minimum[i]<<"  "<<std::endl;
+    
     return 0;
 }
 
