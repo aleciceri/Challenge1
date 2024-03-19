@@ -53,9 +53,9 @@ In the following part I'll describe the folders content one by one
 
   In the file dataGetPot you find all the paramters you can change for the algorithm.
 
-  ### Warnings for MuParser: 
-    -In order to use MuParser I included ../../../../../pacs-examples/Examples/include in makefile, it may need to be changed to adapt to your folder, and the same holds for the library folder ../../../Examples/pacs-examples/Examples/lib, always in makefile
-    -before running make I had to run 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib' on the terminal, also this may need to be changed according to your folder initialization
+### Warnings for MuParser: 
+  -In order to use MuParser I included ../../../../../pacs-examples/Examples/include in makefile, it may need to be changed to adapt to your folder, and the same holds for the library folder ../../../Examples/pacs-examples/Examples/lib, always in makefile
+  -before running make I had to run 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib' on the terminal, also this may need to be changed according to your folder initialization
 
 
 
