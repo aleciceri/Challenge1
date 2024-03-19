@@ -5,8 +5,9 @@ The repository is organized as following:
   - Classic: it contains the code for the basic request of the challenge, so the Armijo method with given function and gradient
   - FD_Gradient: it contains the code for the case where in the main is only defined the function and not its gradient, it is implemented a Finite Difference method to obtain the gradient each iteration of the minimization procedure
   - Heavy-ball: it contains the code with the implementation of the heavy-ball method, implementing also the possibility for the user to choose which method to use for the value of the learning rate
+  - MuParser: it contains the code with the implementation of the Armijo algorithm using GetPot for the definition of functions and parameters and MuParser for the handling of function and gradient in the code
 
-To run the wanted method, go in the respectively folder, then it is sufficient to type 'make', then './main'
+To run the wanted method, go in the respectively folder, then it is sufficient to type 'make', then './main'. For MuParser folder, look at the Warnings at the end.
 
 In the following part I'll describe the folders content one by one 
 ## Classic
@@ -52,7 +53,7 @@ In the following part I'll describe the folders content one by one
 
   In the file dataGetPot you find all the paramters you can change for the algorithm.
 
-  ### Warnings: 
+  ### Warnings for MuParser: 
     -In order to use MuParser I included ../../../../../pacs-examples/Examples/include in makefile, it may need to be changed to adapt to your folder, and the same holds for the library folder ../../../Examples/pacs-examples/Examples/lib, always in makefile
     -before running make I had to run 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib' on the terminal, also this may need to be changed according to your folder initialization
 
