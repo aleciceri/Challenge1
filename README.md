@@ -9,6 +9,8 @@ The repository is organized as following:
 
 To run the wanted method, go in the respectively folder, then it is sufficient to type 'make', then './main'. For MuParser folder, look at the Warnings at the end.
 
+To delete the object files and the executables, type 'make clean'.
+
 In the following part I'll describe the folders content one by one 
 ## Classic
   In this folder there is the Makefile, the main and then the header and source code of functions, where are declared and defined all the methods. 

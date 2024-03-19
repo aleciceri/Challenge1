@@ -23,6 +23,7 @@ namespace myfunctions{
             grad={data.grad1.Eval(),data.grad2.Eval()};
             while(cond(data,alpha))
                 {alpha=alpha/2;}
+            // update of current point
             x_temp=data.current_point-alpha*grad;
             data.current_point=x_temp;
             // increase the number of iterations done
