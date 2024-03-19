@@ -49,7 +49,7 @@ In the following part I'll describe the folders content one by one
 
 
 ## MuParser
-  Here I have implemented the algorithm Armijo using GetPot for the definition of parameters and function and MuParser to define the function and the Gradient, seen as 2 separate functions grad1 and grad2. This code is not general with respect to the dimensions of the point and the number of variables of the function, it is done for the case of a function from $\mathcal{R}^2$ to $\mathcal{R}$. The other codes are general, given that the dimension of the given initial point and the number of variables of the function are equal.
+  Here I have implemented the algorithm Armijo using GetPot for the definition of parameters and function and MuParser to define the function and the Gradient, seen as 2 separate functions grad1 and grad2. This code is not general with respect to the dimensions of the point and the number of variables of the function, it is done for the case of a function from $\mathbb{R}^2$ to $\mathbb{R}$. The other codes are general, given that the dimension of the given initial point and the number of variables of the function are equal.
 
   In the file dataGetPot you find all the paramters you can change for the algorithm.
 
