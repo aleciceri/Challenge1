@@ -38,10 +38,10 @@ In the following part I'll describe the folders content one by one
   In functions there is the method heavy_ball to find the minimum point using vectors of arbitrary dimension, and other methods and operator to make the code easier to read. 
   
   In this folder it is implemented the heavy-ball method. The code also has the possibility to choose which method to use for the learnign rate $\alpha$ in the update rule: 
-    - '0' means you want a constant learning rate 
-    - '1' means you want an exponentially decreasing learnign rate 
-    - '2' means you want a linearly decreasing learning rate 
-    - '3' means you want to use the Armijo rule
+  - '0' means you want a constant learning rate
+  - '1' means you want an exponentially decreasing learnign rate
+  - '2' means you want a linearly decreasing learning rate
+  - '3' means you want to use the Armijo rule
     
   For the decreasing condition in the struct I've insterted a parameter mu that has the same meaning as the one present in the challend pdf on Webeep. 
   
