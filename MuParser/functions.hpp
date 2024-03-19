@@ -31,8 +31,6 @@ bool cond(mystruct &,double);
 
 double norm(std::vector<double>);
 
-std::vector<double> FD_gradient(mystruct &);
-
 }
 
 // to make the code easier to read, I define these 2 operators for making the difference between two vectors and the muliplication between a scalar and a vector

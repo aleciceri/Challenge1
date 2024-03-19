@@ -4,7 +4,6 @@ CPPFLAGS ?= -Wall -I. -I../../../Examples/pacs-examples/Examples/include -I../..
 LDFLAGS ?= -L../../../Examples/pacs-examples/Examples/lib
 LIBS ?= -lmuparser -lmuparserx
 
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib
 SOURCES = main.cpp functions.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = main

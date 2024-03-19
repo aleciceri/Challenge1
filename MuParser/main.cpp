@@ -19,7 +19,7 @@ int main(int argc,char *argv[]){
     data.maxiter=datafile("maxiter",100);
     data.tolerance_grad=datafile("tolerance_grad",1e-6);
     data.tolerance_step=datafile("tolerance_step",1e-6);
-    data.initial_point={0.0,0.0};
+    data.initial_point={datafile("initial_point_x",0.0),datafile("initial_point_y",0.0)};
     data.sigma=datafile("sigma",0.4);
     data.h=datafile("h",1e-4);
     data.current_point=data.initial_point;

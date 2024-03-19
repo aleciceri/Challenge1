@@ -47,8 +47,15 @@ In the following part I'll describe the folders content one by one
   The default value is 0, so a constant learning rate, and it is important to remark that it takes into consideration only the first char value of the first input after ./main, so if you type more than 1 char character or more than 1 input, the rest will be discarded. Since we have a default value, it holds if you don't give an input or if the first char of your input is different from '0','1' or '2'.
 
 
+## MuParser
+  Here I have implemented the algorithm Armijo using GetPot for the definition of parameters and function and MuParser to define the function and the Gradient, seen as 2 separate functions grad1 and grad2. This code is not general with respect to the dimensions of the point and the number of variables of the function, it is done for the case of a function from $\mathcal{R}^2$ to $\mathcal{R}$. The other codes are general, given that the dimension of the given initial point and the number of variables of the function are equal.
 
-TO USE MUPARSER INCLUDE -I../../../../../pacs-examples/Examples/include in makefile, maybe you have to change the number of ../
+  In the file dataGetPot you find all the paramters you can change for the algorithm.
+
+  ### Warnings: 
+    -In order to use MuParser I included ../../../../../pacs-examples/Examples/include in makefile, it may need to be changed to adapt to your folder, and the same holds for the library folder ../../../Examples/pacs-examples/Examples/lib, always in makefile
+    -before running make I had to run 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ale/PACS/Examples/pacs-examples/Examples/lib' on the terminal, also this may need to be changed according to your folder initialization
+
 
 
 
