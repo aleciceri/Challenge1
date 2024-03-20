@@ -86,7 +86,7 @@ std::vector<double> operator-(std::vector<double> v1,std::vector<double> v2){
 std::vector<double> operator+(std::vector<double> v1,std::vector<double> v2){
     // if the size is different, then it is an error and it stops the compilation
     if(v1.size()!=v2.size())
-        std::cerr<<"Vectors of different size, cannot apply subtraction"<<std::endl;
+        std::cerr<<"Vectors of different size, cannot apply sum"<<std::endl;
     std::vector<double> result;
     // sum element by element
     for(std::size_t i=0;i<v1.size();++i){
