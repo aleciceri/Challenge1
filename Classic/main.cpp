@@ -17,6 +17,10 @@ int main(){
     data.grad=grad;
     data.initial_step=1.0;
     data.maxiter=1000;
+
+    // this is not nice.
+    // just: 
+    // data.tolerance_grad = 1e-6; 
     data.tolerance_grad=std::pow(10,-6);
     data.tolerance_step=std::pow(10,-6);
     data.initial_point={0.0,0.0};
