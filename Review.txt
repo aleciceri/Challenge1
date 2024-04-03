@@ -1,0 +1,16 @@
+README is good. Also, I've seen you largely employed git. Nice job!
+
+
+Code Design
+Important: I don't like the fact that you split each point in folders with different main functions and headers. 
+   One of the main idea of the C++ is to have multiple classes of header files to handle each case.
+   So, what I would have expected is a header file that instead of functions.hpp be name adam.hpp, or fd_gradient.hpp.
+Hope you get the point, because this is very important to make good C++ codes.
+  
+  - pow is slow for integer. Should have used or a custom function or not at all pow.
+
+
+Code could have been commented a bit more.
+
+Overall the implementations are good: just improve on the code design.
+
